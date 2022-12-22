@@ -8,6 +8,13 @@ namespace DesignPattern
 {
     public class Factory
     {
+        private enum CoffeeType
+        {
+            Default,
+            Americano,
+            Latte
+        }
+
         private abstract class Coffee
         {
             public abstract int GetPrice();
@@ -61,17 +68,19 @@ namespace DesignPattern
 
         private class CoffeeFactory
         {
-            public static Coffee GetCoffee(string type, int price)
+            public static Coffee GetCoffee(CoffeeType coffeeType, int price)
             {
                 Coffee resultCoffee = null;
-                switch (type)
+                switch (coffeeType)
                 {
-                    case "Americano":
+                    case CoffeeType.Americano:
                         resultCoffee = new Americano(price);
                         break;
-                    case "Latte":
+                    case CoffeeType.Latte:
                         resultCoffee = new Latte(price);
                         break;
+
+                    case CoffeeType.Default:
                     default:
                         resultCoffee = new DefaultCoffee();
                         break;
@@ -83,14 +92,14 @@ namespace DesignPattern
 
         public static void Example()
         {
-            Coffee latte = CoffeeFactory.GetCoffee("Latte", 4000);
-            Coffee americano = CoffeeFactory.GetCoffee("Americano", 1000);
-            Coffee defaultCoffee = CoffeeFactory.GetCoffee(null, 0);
+            Coffee latte = CoffeeFactory.GetCoffee(CoffeeType.Latte, 4000);
+            Coffee americano = CoffeeFactory.GetCoffee(CoffeeType.Americano, 1000);
+            Coffee defaultCoffee = CoffeeFactory.GetCoffee(CoffeeType.Default, 0);
 
-            List<Coffee> coffees = new List<Coffee>() { 
-                latte, 
-                americano, 
-                defaultCoffee 
+            List<Coffee> coffees = new List<Coffee>() {
+                latte,
+                americano,
+                defaultCoffee
             };
 
             foreach (Coffee coffee in coffees)
