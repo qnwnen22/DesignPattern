@@ -10,8 +10,8 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
+            Builder.Example();
             Observer.Example();
-            
             Strategy.Example();
             Factory.Example();
             Singleton.Example();
