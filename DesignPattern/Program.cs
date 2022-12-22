@@ -10,6 +10,7 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
+            Factory.Example();
             Singleton.Example();
         }
     }
