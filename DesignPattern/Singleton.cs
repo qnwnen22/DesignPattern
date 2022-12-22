@@ -8,7 +8,7 @@ namespace DesignPattern
 {
     public class Singleton
     {
-        public class Manager
+        private class Manager
         {
             private static Manager manager;
 
