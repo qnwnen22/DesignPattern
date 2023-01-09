@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +11,7 @@ namespace DesignPattern
     {
         static void Main(string[] args)
         {
-            ProtoType.Example();
-            Builder.Example();
-            Observer.Example();
-            Strategy.Example();
-            Factory.Example();
-            Singleton.Example();
+            
         }
     }
 }
